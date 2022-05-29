@@ -1,0 +1,20 @@
+<div class="container text-center mt-5" *ngIf="userNodes">
+  <div class="genealogy-tree">
+    <ul>
+      <ng-container *ngTemplateOutlet="recursiveListTmpl; context:{ list: userNodes.slice(0,1) }"></ng-container>
+    </ul>
+  </div>
+</div>
+<ng-template #recursiveListTmpl let-list="list" >
+    <li *ngFor="let item of list">
+    <div class="card text-center ">
+      <div class="card-body">
+        <h5 class="card-title">{{ item.User.name }}</h5>
+        <h5 class="card-title">{{ item.User.Id }}</h5>
+      </div>
+    </div>
+    <ul *ngIf="item.Children.length > 0">
+      <ng-container *ngTemplateOutlet="recursiveListTmpl; context:{ list: item.Children }"></ng-container>
+    </ul>
+  </li>
+</ng-template>

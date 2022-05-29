@@ -1,0 +1,27 @@
+  /*
+       Solution 1
+      : sort users list  by code hierarchy (code length)
+      : traverse  array element 
+
+      Time complexity = O(n log n)  for sort()
+    
+
+      // this.users.sort(this.compareCodes)
+      // this.users.forEach(element => {
+      //   this.usersStr += "["+element.code.split('.').pop() + "]";
+      // });
+
+      
+ Solution 2 
+
+ : Build tree of nodes , every node hase user data [name , code , image ] pointer to parent and list of Children
+ : Travers tree row by row 
+    
+     Time complexity = O(n^2) //but we  can improve travserse algorithm 
+  
+    //   this.BuildUserNodeLookup(this.users) //build Dictionary of key =  user code ,  value =  node . for faster seacrhing for parent of a each  node 
+    //   this.userTree.Root = this.BuildTree()
+    //   this.levelOrderTraversal(this.userTree.Root)
+
+
+    
